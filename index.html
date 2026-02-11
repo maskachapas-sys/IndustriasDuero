@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirección - Industrias Duero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .search-box input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: scale(1.05);
+        }
+        
+        .section-title {
+            color: white;
+            font-size: 1.8em;
+            margin: 40px 0 30px 0;
+            border-bottom: 3px solid rgba(255,255,255,0.5);
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4em;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .card-position {
+            font-size: 1em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .card-contacts {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            color: #667eea;
+        }
+        
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+        
+        .contact-icon.email {
+            background: #e3f2fd;
+            color: #667eea;
+        }
+        
+        .contact-icon.phone {
+            background: #f3e5f5;
+            color: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-header {
+                height: 150px;
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏢 Dirección Ejecutiva</h1>
+            <p>Industrias Duero</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar por nombre o cargo..." onkeyup="filterCards()">
+        </div>
+        
+        <!-- DIRECCIÓN GENERAL -->
+        <h2 class="section-title">Dirección General</h2>
+        <div class="cards-grid">
+            <div class="card" data-search="gerente general">
+                <div class="card-header">👨‍💼</div>
+                <div class="card-content">
+                    <div class="card-name">Juan García López</div>
+                    <div class="card-position">Gerente General</div>
+                    <div class="card-contacts">
+                        <a href="mailto:juan.garcia@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>juan.garcia@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234567" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 67</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" data-search="subdirector general">
+                <div class="card-header">👨‍💼</div>
+                <div class="card-content">
+                    <div class="card-name">Carlos Martínez Ruiz</div>
+                    <div class="card-position">Subdirector General</div>
+                    <div class="card-contacts">
+                        <a href="mailto:carlos.martinez@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>carlos.martinez@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234568" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 68</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DIRECCIÓN DE OPERACIONES -->
+        <h2 class="section-title">Dirección de Operaciones</h2>
+        <div class="cards-grid">
+            <div class="card" data-search="director operaciones">
+                <div class="card-header">👨‍💼</div>
+                <div class="card-content">
+                    <div class="card-name">Miguel Fernández Sánchez</div>
+                    <div class="card-position">Director de Operaciones</div>
+                    <div class="card-contacts">
+                        <a href="mailto:miguel.fernandez@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>miguel.fernandez@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234569" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 69</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" data-search="jefe producción">
+                <div class="card-header">👨‍🔧</div>
+                <div class="card-content">
+                    <div class="card-name">Antonio Gómez Pérez</div>
+                    <div class="card-position">Jefe de Producción</div>
+                    <div class="card-contacts">
+                        <a href="mailto:antonio.gomez@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>antonio.gomez@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234570" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 70</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DIRECCIÓN COMERCIAL -->
+        <h2 class="section-title">Dirección Comercial</h2>
+        <div class="cards-grid">
+            <div class="card" data-search="director comercial ventas">
+                <div class="card-header">💼</div>
+                <div class="card-content">
+                    <div class="card-name">Laura Rodríguez López</div>
+                    <div class="card-position">Directora Comercial</div>
+                    <div class="card-contacts">
+                        <a href="mailto:laura.rodriguez@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>laura.rodriguez@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234571" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 71</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" data-search="jefe ventas">
+                <div class="card-header">📊</div>
+                <div class="card-content">
+                    <div class="card-name">Isabel Díaz García</div>
+                    <div class="card-position">Jefa de Ventas</div>
+                    <div class="card-contacts">
+                        <a href="mailto:isabel.diaz@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>isabel.diaz@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234572" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 72</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DIRECCIÓN FINANCIERA -->
+        <h2 class="section-title">Dirección Financiera</h2>
+        <div class="cards-grid">
+            <div class="card" data-search="director financiero">
+                <div class="card-header">💰</div>
+                <div class="card-content">
+                    <div class="card-name">Fernando López Martín</div>
+                    <div class="card-position">Director Financiero</div>
+                    <div class="card-contacts">
+                        <a href="mailto:fernando.lopez@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>fernando.lopez@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234573" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 73</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" data-search="controller contabilidad">
+                <div class="card-header">📈</div>
+                <div class="card-content">
+                    <div class="card-name">Patricia Álvarez Ruiz</div>
+                    <div class="card-position">Controller de Contabilidad</div>
+                    <div class="card-contacts">
+                        <a href="mailto:patricia.alvarez@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>patricia.alvarez@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234574" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 74</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DIRECCIÓN DE RECURSOS HUMANOS -->
+        <h2 class="section-title">Recursos Humanos</h2>
+        <div class="cards-grid">
+            <div class="card" data-search="director recursos humanos">
+                <div class="card-header">👥</div>
+                <div class="card-content">
+                    <div class="card-name">Raquel Navarro García</div>
+                    <div class="card-position">Directora de RRHH</div>
+                    <div class="card-contacts">
+                        <a href="mailto:raquel.navarro@industriasduero.es" class="contact-item">
+                            <div class="contact-icon email">✉️</div>
+                            <span>raquel.navarro@industriasduero.es</span>
+                        </a>
+                        <a href="tel:+34961234575" class="contact-item">
+                            <div class="contact-icon phone">📱</div>
+                            <span>+34 96 123 45 75</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function filterCards() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const text = card.getAttribute('data-search').toLowerCase();
+                const name = card.querySelector('.card-name').textContent.toLowerCase();
+                
+                if (text.includes(searchInput) || name.includes(searchInput)) {
+                    card.style.display = '';
+                    card.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
